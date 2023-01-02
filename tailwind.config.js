@@ -14,10 +14,14 @@ module.exports = {
       'red-btn': '#DB2100',
       'red-btn-hover': '#D11F00',
     },
+    fontFamily: {
+      'haoura': ["'Haoura'", 'sans-serif'],
+      'golden': ["'Gaoura'", 'sans-serif'],
+    },
     extend: {
       screens: {
         'max-md': { max: "767px" }  ,
-        // => @media (min-width: 640px) { ... }
+        // => @media (max-width: 767px) { ... }
       },
     },
   },
