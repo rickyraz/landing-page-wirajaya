@@ -16,11 +16,13 @@ module.exports = {
     },
     fontFamily: {
       'haoura': ["'Haoura'", 'sans-serif'],
-      'golden': ["'Gaoura'", 'sans-serif'],
+      'golden': ["'Golden'", 'sans-serif'],
     },
     extend: {
       screens: {
+        'max-sm': { max: "414px" }  ,
         'max-md': { max: "767px" }  ,
+        'max-lg': { max: "1024px" }  ,
         // => @media (max-width: 767px) { ... }
       },
     },
