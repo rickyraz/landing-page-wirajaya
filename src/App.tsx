@@ -10,33 +10,33 @@ const App: Component = () => {
     <div class="min-w-[420px]">
       <Header />
       <Hero />
-      <WhyHere/>
+      <WhyHere />
     </div>
   );
 };
 
 const Header: Component = () => {
   return (
-    <header class="flex-wrap bg-light-cream bg-opacity-80 backdrop-blur-lg pl-5 md:px-10 py-2 md:py-5 font-haoura fixed w-full z-[120] border-b border-b-transparent">
-      <div class="flex items-center justify-between md:max-w-[1015px] md:mx-auto relative ">
-        <div class="flex items-center flex-shrink-0">
-          <picture class="flex items-center mr-10">
+    <header class="fixed z-[120] w-full flex-wrap border-b border-b-transparent bg-light-cream bg-opacity-80 py-2 pl-5 font-haoura backdrop-blur-lg md:px-10 md:py-5">
+      <div class="relative flex items-center justify-between md:mx-auto md:max-w-[1015px] ">
+        <div class="flex flex-shrink-0 items-center">
+          <picture class="mr-10 flex items-center">
             <source media="(min-width: 768px)" srcset={logoWide} />
             <source media="(max-width: 767px)" srcset={logo} />
-            <img src={logoWide} alt="logo" class="fill-current h-7" />
+            <img src={logoWide} alt="logo" class="h-7 fill-current" />
           </picture>
-          <ul class="flex space-x-5 lg:space-x-10 text-sm font-semibold text-green-dark max-md:hidden">
+          <ul class="flex space-x-5 text-sm font-semibold text-green-dark lg:space-x-10 max-md:hidden">
             <li>Produk</li>
             <li>Tentang Kami</li>
             <li>Alamat</li>
           </ul>
         </div>
-        <div class="flex items-center flex-shrink-0">
-          <button class="bg-red-btn hover:bg-red-btn-hover text-sm text-white font-semibold py-2 px-4 rounded-full">
+        <div class="flex flex-shrink-0 items-center">
+          <button class="rounded-full bg-red-btn py-2 px-4 text-sm font-semibold text-white hover:bg-red-btn-hover">
             cek toko
           </button>
           <button class="p-5 md:hidden">
-            <img src={bar} alt="bar menu" class="fill-current h-8" />
+            <img src={bar} alt="bar menu" class="h-8 fill-current" />
           </button>
         </div>
       </div>
@@ -46,16 +46,16 @@ const Header: Component = () => {
 
 const Hero: Component = () => {
   return (
-    <div class="flex flex-col items-center justify-start px-5 md:pt-24 bg-light-cream relative pb-40 md:pb-0">
-      <h1 class="text-2xl leading-loose mt-28 md:mt-36 md:text-[32px] lg:text-5xl font-golden text-green-dark">
+    <div class="relative flex flex-col items-center justify-start bg-light-cream px-5 pb-40 md:pt-24 md:pb-0">
+      <h1 class="mt-28 font-golden text-2xl leading-loose text-green-dark md:mt-36 md:text-[32px] lg:text-5xl">
         100% Handmade Qur'an Cover
       </h1>
-      <p class="font-haoura text-left text-base font-medium text-green-light mt-5 md:mt-10 lg:mt-20  md:max-w-2xl md:text-center lg:max-w-3xl">
+      <p class="mt-5 text-left font-haoura text-base font-medium text-green-light md:mt-10 md:max-w-2xl  md:text-center lg:mt-20 lg:max-w-3xl">
         Enhance your reading experience with a luxurious handcrafted Quran
         cover. Made with utmost care and high quality material, unique and
         beautiful quran cover for the sacred text.
       </p>
-      <Quran/>
+      <Quran />
     </div>
   );
 };
@@ -63,46 +63,39 @@ const Hero: Component = () => {
 const Quran: Component = () => {
   return (
     <div class="relative mt-10 md:mt-28 md:-mb-28 ">
-        <div class="flex md:space-x-3 xl:-space-x-5 relative ">
-          <div class="w-[211px] md:w-[252px] h-[281px] md:h-[345px] bg-[#90bdfc] border-2 rounded-lg border-white max-md:z-0 max-md:absolute md:flex-1 max-md:top-8 max-md:-right-4 xl:rotate-[10deg]"></div>
-          <div class="w-[211px] md:w-[252px] h-[281px] md:h-[345px] bg-[#ff9f9f] border-2 rounded-lg border-white max-md:z-10 max-md:absolute md:flex-1 max-md:top-0 max-md:-left-4 xl:rotate-[10deg]"></div>
-          <div class="w-[211px] md:w-[252px] h-[281px] md:h-[345px] bg-[#dd6969] border-2 rounded-lg border-white md:flex-1 max-md:hidden xl:rotate-[10deg]"></div>
-          <div class="w-[211px] md:w-[252px] h-[281px] md:h-[345px] bg-[#971010] border-2 rounded-lg border-white md:flex-1 max-lg:hidden xl:rotate-[10deg]"></div>
-        </div>
+      <div class="relative flex md:space-x-3 xl:-space-x-5 ">
+        <div class="h-[281px] w-[211px] rounded-lg border-2 border-white bg-[#90bdfc] md:h-[345px]  md:w-[252px] xl:rotate-[10deg] max-md:absolute max-md:top-8 max-md:-right-4 max-md:z-0"></div>
+        <div class="h-[281px] w-[211px] rounded-lg border-2 border-white bg-[#ff9f9f] md:h-[345px] md:w-[252px] md:flex-1 xl:rotate-[10deg] max-md:absolute max-md:top-0 max-md:-left-4 max-md:z-10"></div>
+        <div class="h-[281px] w-[211px] rounded-lg border-2 border-white bg-[#dd6969] md:h-[345px] md:w-[252px] xl:rotate-[10deg] max-md:hidden"></div>
+        <div class="h-[281px] w-[211px] rounded-lg border-2 border-white bg-[#971010] md:h-[345px] md:w-[252px] xl:rotate-[10deg] max-lg:hidden"></div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-const WhyHere : Component = () => {
+const WhyHere: Component = () => {
   return (
-    <div class="bg-green-light flex-col lg:rounded-xl">
-      <div class="h-52">
-        1
-      </div>
-      <div class="h-52">
-        2
-      </div>
-      <div class="h-52">
-        3
-      </div>
-      <div class="h-52">
-        4
-      </div>
+    <div class="flex-col bg-green-light lg:rounded-xl">
+      <div class="h-52">1</div>
+      <div class="h-52">2</div>
+      <div class="h-52">3</div>
+      <div class="h-52">4</div>
     </div>
-  )
-}
+  );
+};
 export default App;
 
 const BoxBetween: Component = () => {
   return (
     <div class="relative">
-        <div class="absolute inset-0 grid" aria-hidden="true">
-          <div class="bg-light-cream"></div>
-          <div class="bg-green-dark"></div>
-        </div>
-        <div class="isolate max-w-lg mx-auto bg-white p-8 rounded-lg border-2 shadow-lg">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, porro. Accusamus, quidem!
-        </div>
+      <div class="absolute inset-0 grid" aria-hidden="true">
+        <div class="bg-light-cream"></div>
+        <div class="bg-green-dark"></div>
       </div>
-  )
-}
+      <div class="isolate mx-auto max-w-lg rounded-lg border-2 bg-white p-8 shadow-lg">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, porro.
+        Accusamus, quidem!
+      </div>
+    </div>
+  );
+};
