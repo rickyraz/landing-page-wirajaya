@@ -21,10 +21,15 @@ module.exports = {
     extend: {
       screens: {
         'max-sm': { max: "414px" }  ,
+        // => @media (max-width: 414px) { ... }
         'max-md': { max: "767px" }  ,
-        'max-lg': { max: "1024px" }  ,
         // => @media (max-width: 767px) { ... }
+        'max-lg': { max: "1024px" }  ,
+        // => @media (max-width: 1024px) { ... }
       },
+      rotate: {
+        '10der': '8deg',
+      }
     },
   },
   plugins: [],
