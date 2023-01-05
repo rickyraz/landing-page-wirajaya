@@ -3,8 +3,11 @@ import "./index.css";
 import logo from "./logo.svg";
 import logoWide from "./logo-wide.svg";
 
+import wa from "./assets/wa.svg";
+import location from "./assets/location.svg";
 import Diamond from "./assets/diamond.svg";
 import bar from "./assets/bar.svg";
+
 import hitam from "./assets/img/hitam.webp";
 import merah from "./assets/img/merah.webp";
 import pink from "./assets/img/pink.webp";
@@ -16,6 +19,8 @@ const App: Component = () => {
       <Hero />
       <WhyHere />
       <Category />
+      <About />
+      <Footer />
     </div>
   );
 };
@@ -127,7 +132,7 @@ const Points: Component = (props) => {
           </div>
           <p class="mt-5 text-sm text-green-dark md:text-base">{points.desc}</p>
         </div>
-        <div class="mt-24 h-[202px] w-full rounded-lg bg-green-dark md:mt-0 md:min-w-[335px]">
+        <div class="mt-5 h-[202px] w-full rounded-lg bg-green-dark md:mt-0 md:min-w-[335px]">
           <img src={points.url} alt="" />
         </div>
       </div>
@@ -137,52 +142,114 @@ const Points: Component = (props) => {
 
 const Category: Component = () => {
   return (
-    <section class="relative px-5 pt-10 ">
+    <section class="relative bg-light-cream px-5 pt-10">
       <div class="flex flex-col justify-center font-haoura">
         <h2 class="text-2xl font-extrabold text-green-dark md:text-center md:text-3xl">
           Kategori Al-Qur'an
         </h2>
         <p class="mt-5 font-normal text-green-light md:text-center">
-          beberapa macam kategori al-qur'an yang bisa kalian pilih
+          beberapa macam kategori al-qur'an yang bisa dipilih
         </p>
       </div>
       <div class="mt-10 space-y-5 md:mx-auto md:flex md:max-w-[850px] md:space-y-0 md:space-x-5 lg:space-x-7">
-        <div>
-          <div class="flex h-full w-full justify-center rounded-lg bg-[#efefe7] shadow-sm md:items-center">
+        <div class="flex-col">
+          <div class="flex h-full w-full items-center justify-center rounded-lg bg-[#efefe7] shadow-sm">
             <img src={hitam} alt="al-mukhtar-hitam" class="h-56 md:h-72 " />
           </div>
-          <p class="mt-5 text-xl font-bold text-green-light">Al-Mukhtar</p>
+          <p class="mt-5 text-xl font-bold text-green-light md:text-center">
+            Al-Mukhtar
+          </p>
         </div>
-        <div>
-          <div class="relative flex h-full w-full justify-center rounded-lg bg-[#efefe7] shadow-sm">
+        <div class="flex-col">
+          <div class=" flex h-full w-full items-center justify-center rounded-lg bg-[#efefe7] shadow-sm">
             <img src={pink} alt="lope-pink" class=" h-56  md:h-72" />
           </div>
-          <p class="mt-5 text-xl font-bold text-green-light">Lope</p>
+          <p class="mt-5 text-xl font-bold text-green-light md:text-center">
+            Lope
+          </p>
         </div>
-        <div>
-          <div class="relative flex h-full w-full justify-center rounded-lg bg-[#efefe7] shadow-sm">
+        <div class="flex-col">
+          <div class=" flex h-full w-full items-center justify-center rounded-lg bg-[#efefe7] shadow-sm">
             <img src={merah} alt="samsinoer-merah-emas" class=" h-56 md:h-72" />
           </div>
-          <p class="mt-5 text-xl font-bold text-green-light">Samsinoer</p>
+          <p class=" mt-5 text-xl font-bold text-green-light md:text-center">
+            Samsinoer
+          </p>
         </div>
       </div>
     </section>
   );
 };
 
-export default App;
-
-const BoxBetween: Component = () => {
+const About: Component = () => {
   return (
-    <div class="relative">
-      <div class="absolute inset-0 grid" aria-hidden="true">
-        <div class="bg-light-cream"></div>
-        <div class="bg-green-dark"></div>
-      </div>
-      <div class="isolate mx-auto max-w-lg rounded-lg border-2 bg-white p-8 shadow-lg">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, porro.
-        Accusamus, quidem!
-      </div>
+    <div class="mt-20 flex-col bg-green-light px-5 py-10 font-haoura md:px-5 lg:rounded-tl-xl lg:rounded-tr-xl">
+      <section>
+        <h2 class="text-2xl font-extrabold text-white md:text-center md:text-3xl">
+          Tentang Kami
+        </h2>
+        <div class="max-w-[825px] md:mx-auto">
+          <div class="mt-5 space-y-5 text-white md:text-center">
+            <p>
+              Perusahaan kami, PT. GG Wirajaya, adalah perusahaan yang bergerak
+              di bidang produksi quran <br /> cover handmade dan terletak di
+              Cinere, Depok.
+            </p>
+          </div>
+          <div class="mt-5 space-y-5 md:flex md:space-y-0 md:space-x-5">
+            <div class="h-[202px] w-full rounded-lg bg-green-dark"></div>
+            <div class="h-[202px] w-full rounded-lg bg-green-dark"></div>
+          </div>
+        </div>
+      </section>
+      <Lokasi />
     </div>
   );
 };
+
+const Lokasi: Component = () => {
+  return (
+    <section class="mt-10 max-w-[825px] font-haoura md:mx-auto md:px-0">
+      <h2 class="text-2xl font-extrabold text-white md:text-center md:text-3xl">
+        Lokasi & Kontak
+      </h2>
+      <div class="mt-5 text-white md:text-center">
+        <p>
+          <span class="font-bold">Alamat </span>: Cinere Terrace Commercial
+          Block JA, N0.5, Rt/Rw: 007/005, <br class="max-md:hidden" />
+          Pangkalan Jati, Kec. Cinere, Kota Depok, Jawa Barat 16513
+        </p>
+      </div>
+      <div class="mx-auto mt-5 flex md:justify-center md:space-x-5">
+        <a href="https://goo.gl/maps/a59KtqJKnEBFiByT9" target="blank">
+          <button class="flex items-center justify-center rounded border-[3px] border-[#005C49] bg-green-light px-5 py-2 md:py-[10px] md:px-7">
+            <img src={location} alt="wa" class="h-5" />
+            <span class="ml-2 font-semibold text-white">Google Map</span>
+          </button>
+        </a>
+        <button class="ml-5 flex items-center justify-center rounded bg-white px-6 py-2 md:px-7 md:py-[10px]">
+          <img src={wa} alt="wa" class="h-5" />
+          <span class="ml-2 font-semibold">Whatsapp</span>
+        </button>
+      </div>
+    </section>
+  );
+};
+
+const Footer: Component = () => {
+  return (
+    <footer class="bg-green-dark text-center lg:text-left">
+      <div
+        class="p-4 text-center text-white"
+        style="background-color: rgba(0, 0, 0, 0.2);"
+      >
+        © 2023 Copyright: <span> </span>
+        <a class="text-white" href="https://tailwind-elements.com/">
+          PT.GG Wirajaya
+        </a>
+      </div>
+    </footer>
+  );
+};
+
+export default App;
