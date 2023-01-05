@@ -1,17 +1,13 @@
-import {
-  Component,
-  createSignal,
-  mergeProps,
-  Show,
-  splitProps,
-} from "solid-js";
-
+import { Component, mergeProps } from "solid-js";
 import "./index.css";
 import logo from "./logo.svg";
 import logoWide from "./logo-wide.svg";
 
 import Diamond from "./assets/diamond.svg";
 import bar from "./assets/bar.svg";
+import hitam from "./assets/img/hitam.webp";
+import merah from "./assets/img/merah.webp";
+import pink from "./assets/img/pink.webp";
 
 const App: Component = () => {
   return (
@@ -19,6 +15,7 @@ const App: Component = () => {
       <Header />
       <Hero />
       <WhyHere />
+      <Category />
     </div>
   );
 };
@@ -35,6 +32,7 @@ const Header: Component = () => {
           </picture>
           <ul class="flex space-x-5 text-sm font-semibold text-green-dark lg:space-x-10 max-md:hidden">
             <li>Produk</li>
+            <li>Kategori Al-Qur'an</li>
             <li>Tentang Kami</li>
             <li>Alamat</li>
           </ul>
@@ -83,15 +81,15 @@ const Quran: Component = () => {
 
 const WhyHere: Component = () => {
   return (
-    <section class="flex-col bg-green-light px-5 font-haoura lg:rounded-xl">
-      <h2 class="pt-48 text-2xl font-extrabold text-white md:text-center md:text-3xl">
+    <section class="flex-col bg-green-light px-5 pb-20 pt-48 font-haoura lg:rounded-xl ">
+      <h2 class="text-2xl font-extrabold text-white md:text-center md:text-3xl">
         Kelebihan al-qur`an kami dibanding penerbit lain
       </h2>
-      <p class="pt-5 font-normal text-white  md:text-center">
+      <p class="mt-5 font-normal text-white  md:text-center">
         inilah beberapa alasan mengapa produk kami merupakan pilihan terbaik
         untuk Anda
       </p>
-      <div class="mt-10 space-y-8">
+      <div class="mt-10 space-y-7">
         <Points
           title="Proses pembuatan yang berkualitas"
           desc="Alqur'an kami melalui proses tahap yang panjang, setiap langkah dilakukan dengan hati-hati oleh tim kami, menghasilkan produk terbaik yang tahan lama"
@@ -124,7 +122,7 @@ const Points: Component = (props) => {
       <div class=" md:flex ">
         <div class="md:mr-8 lg:mr-16">
           <div class="flex ">
-            <img src={Diamond} alt="diamond" class="mr-5"/>
+            <img src={Diamond} alt="diamond" class="mr-5" />
             <h3 class="text-xl font-bold text-green-light">{points.title}</h3>
           </div>
           <p class="mt-5 text-sm text-green-dark md:text-base">{points.desc}</p>
@@ -136,6 +134,42 @@ const Points: Component = (props) => {
     </div>
   );
 };
+
+const Category: Component = () => {
+  return (
+    <section class="relative px-5 pt-10 ">
+      <div class="flex flex-col justify-center font-haoura">
+        <h2 class="text-2xl font-extrabold text-green-dark md:text-center md:text-3xl">
+          Kategori Al-Qur'an
+        </h2>
+        <p class="mt-5 font-normal text-green-light md:text-center">
+          beberapa macam kategori al-qur'an yang bisa kalian pilih
+        </p>
+      </div>
+      <div class="mt-10 space-y-5 md:mx-auto md:flex md:max-w-[850px] md:space-y-0 md:space-x-5 lg:space-x-7">
+        <div>
+          <div class="flex h-full w-full justify-center rounded-lg bg-[#efefe7] shadow-sm md:items-center">
+            <img src={hitam} alt="al-mukhtar-hitam" class="h-56 md:h-72 " />
+          </div>
+          <p class="mt-5 text-xl font-bold text-green-light">Al-Mukhtar</p>
+        </div>
+        <div>
+          <div class="relative flex h-full w-full justify-center rounded-lg bg-[#efefe7] shadow-sm">
+            <img src={pink} alt="lope-pink" class=" h-56  md:h-72" />
+          </div>
+          <p class="mt-5 text-xl font-bold text-green-light">Lope</p>
+        </div>
+        <div>
+          <div class="relative flex h-full w-full justify-center rounded-lg bg-[#efefe7] shadow-sm">
+            <img src={merah} alt="samsinoer-merah-emas" class=" h-56 md:h-72" />
+          </div>
+          <p class="mt-5 text-xl font-bold text-green-light">Samsinoer</p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default App;
 
 const BoxBetween: Component = () => {
