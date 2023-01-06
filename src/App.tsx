@@ -306,8 +306,11 @@ const Category: Component = () => {
 
 const About: Component = () => {
   return (
-    <div class="flex-col bg-green-light px-5 py-12 font-haoura md:px-5 lg:rounded-tl-xl lg:rounded-tr-xl">
-      <section id="about">
+    <div
+      class="flex-col bg-green-light px-5 py-12 font-haoura md:px-5 lg:rounded-tl-xl lg:rounded-tr-xl"
+      id="about"
+    >
+      <section>
         <h2 class="text-2xl font-extrabold text-white md:text-center md:text-3xl">
           Tentang Kami
         </h2>
@@ -315,8 +318,8 @@ const About: Component = () => {
           <div class="mt-5 space-y-5 text-white md:text-center">
             <p>
               Perusahaan kami, PT. GG Wirajaya, adalah perusahaan yang bergerak
-              di bidang produksi quran <br /> cover handmade dan terletak di
-              Cinere, Depok.
+              di bidang produksi quran <br class="max-md:hidden" /> cover
+              handmade dan terletak di Cinere, Depok.
             </p>
           </div>
           <div class="mt-5 space-y-5 md:flex md:space-y-0 md:space-x-5">
@@ -379,10 +382,3 @@ const Footer: Component = () => {
 };
 
 export default App;
-
-function useState(arg0: boolean): [any, any] {
-  throw new Error("Function not implemented.");
-}
-function useEffect(arg0: () => void, arg1: any[]) {
-  throw new Error("Function not implemented.");
-}
