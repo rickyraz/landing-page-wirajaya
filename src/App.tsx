@@ -8,10 +8,6 @@ import location from "./assets/location.svg";
 import Diamond from "./assets/diamond.svg";
 import bar from "./assets/bar.svg";
 
-import hitam from "./assets/img/hitam.webp";
-import merah from "./assets/img/merah.webp";
-import pink from "./assets/img/pink.webp";
-
 const App: Component = () => {
   return (
     <div class=" overflow-x-hidden">
@@ -25,21 +21,59 @@ const App: Component = () => {
   );
 };
 
+// ------------------ Components ------------------
+
 const Header: Component = () => {
+  const handleClick = (event: { target: any; preventDefault: () => void }) => {
+    // Get the target element that was clicked
+    const target = event.target;
+
+    // Make sure the target is a link element
+    if (target.tagName === "A") {
+      // Get the href attribute of the link
+      const href = target.getAttribute("href");
+
+      // Make sure the href is a valid anchor link
+      if (href.startsWith("#")) {
+        // Prevent the default link behavior
+        event.preventDefault();
+
+        // Get the element corresponding to the anchor link
+        const element = document.querySelector(href);
+
+        // Scroll to the element smoothly
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <header class="fixed z-[120] w-full flex-wrap border-b border-b-white bg-light-cream bg-opacity-[85] py-2 pl-5 font-haoura backdrop-blur-xl md:px-10 md:py-5">
-      <nav class="relative flex items-center justify-between md:mx-auto md:max-w-[1015px]">
+      <nav
+        class="relative flex items-center justify-between md:mx-auto md:max-w-[1015px]"
+        onClick={handleClick}
+      >
         <div class="flex flex-shrink-0 items-center">
-          <picture class="mr-10 flex items-center">
-            <source media="(min-width: 768px)" srcset={logoWide} />
-            <source media="(max-width: 767px)" srcset={logo} />
-            <img src={logoWide} alt="logo" class="h-7 fill-current" />
-          </picture>
+          <a href="/">
+            <picture class="mr-10 flex items-center ">
+              <source media="(min-width: 768px)" srcset={logoWide} />
+              <source media="(max-width: 767px)" srcset={logo} />
+              <img src={logoWide} alt="logo" class="h-7 fill-current" />
+            </picture>
+          </a>
           <ul class="flex space-x-5 text-sm font-semibold text-green-dark lg:space-x-10 max-md:hidden">
-            <li>Produk</li>
-            <li>Kategori Al-Qur'an</li>
-            <li>Tentang Kami</li>
-            <li>Alamat</li>
+            <li>
+              <a href="#kelebihan">Kelebihan</a>
+            </li>
+            <li>
+              <a href="#kategori">Kategori Al-Qur'an</a>
+            </li>
+            <li>
+              <a href="#about">Tentang Kami</a>
+            </li>
+            <li>
+              <a href="#alamat">Lokasi & Kontak</a>
+            </li>
           </ul>
         </div>
         <div class="flex flex-shrink-0 items-center">
@@ -74,11 +108,39 @@ const Hero: Component = () => {
 const Quran: Component = () => {
   return (
     <div class="relative mt-10 md:mt-24 md:-mb-28 ">
-      <div class="relative flex md:space-x-3 xl:-space-x-5 ">
-        <div class="h-[281px] w-[211px] rounded-lg border-2 border-white bg-[#90bdfc] md:h-[345px] md:w-[252px] xl:rotate-10der max-md:absolute max-md:top-8 max-md:-right-6 max-md:z-0"></div>
-        <div class="h-[281px] w-[211px] rounded-lg border-2 border-white bg-[#ff9f9f] md:h-[345px] md:w-[252px] xl:rotate-10der max-md:absolute max-md:top-0 max-md:-left-6 max-md:z-10"></div>
-        <div class="h-[281px] w-[211px] rounded-lg border-2 border-white bg-[#dd6969] md:h-[345px] md:w-[252px] xl:rotate-10der max-md:hidden"></div>
-        <div class="h-[281px] w-[211px] rounded-lg border-2 border-white bg-[#971010] md:h-[345px] md:w-[252px] xl:rotate-10der max-lg:hidden"></div>
+      <div class="relative flex md:-space-x-5 xl:-space-x-10">
+        <div class="h-[281px] w-[211px] bg-transparent transition duration-300 ease-in-out md:h-[345px] md:w-[252px] xl:rotate-10der hover:xl:rotate-0 max-md:absolute max-md:top-8 max-md:-right-6 max-md:z-0">
+          <img
+            src="https://ik.imagekit.io/w9raj61y944g/Landing-Page/Hero/ungu.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1672975788176"
+            alt="quran custom ungu"
+            loading="lazy"
+            class="h-full w-full object-cover shadow-sm contrast-125"
+          />
+        </div>
+        <div class="h-[281px] w-[211px] bg-transparent transition duration-300 ease-in-out md:h-[345px] md:w-[252px] xl:rotate-10der hover:xl:rotate-0 max-md:absolute max-md:top-0 max-md:-left-6 max-md:z-10">
+          <img
+            src="https://ik.imagekit.io/w9raj61y944g/Landing-Page/Hero/fanta.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1672976550941"
+            alt="quran custom merah"
+            loading="lazy"
+            class="h-full w-full object-cover shadow-sm"
+          />
+        </div>
+        <div class="h-[281px] w-[211px] bg-transparent transition duration-300 ease-in-out md:h-[345px] md:w-[252px] xl:rotate-10der hover:xl:rotate-0 max-md:hidden">
+          <img
+            src="https://ik.imagekit.io/w9raj61y944g/Landing-Page/Hero/hijau-tua.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1672975875140"
+            alt="quran custom cover hijau tua"
+            loading="lazy"
+            class="h-full w-full object-cover shadow-sm "
+          />
+        </div>
+        <div class="h-[281px] w-[211px] bg-transparent transition duration-300 ease-in-out md:h-[345px]  md:w-[252px] xl:rotate-10der hover:xl:rotate-0 max-lg:hidden">
+          <img
+            src="https://ik.imagekit.io/w9raj61y944g/Landing-Page/Hero/emas.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1672976745320"
+            alt="quran custom cover emas"
+            loading="lazy"
+            class="h-full w-full object-cover shadow-sm "
+          />
+        </div>
       </div>
     </div>
   );
@@ -86,7 +148,10 @@ const Quran: Component = () => {
 
 const WhyHere: Component = () => {
   return (
-    <section class="flex-col bg-green-light px-5 pb-20 pt-48 font-haoura lg:rounded-xl ">
+    <section
+      class="flex-col bg-green-light px-5 pb-20 pt-48 font-haoura lg:rounded-xl "
+      id="kelebihan"
+    >
       <h2 class="text-2xl font-extrabold text-white md:text-center md:text-3xl">
         Kelebihan al-qur`an kami dibanding penerbit lain
       </h2>
@@ -142,7 +207,10 @@ const Points: Component = (props) => {
 
 const Category: Component = () => {
   return (
-    <section class="relative bg-light-cream px-5 pt-10">
+    <section
+      class="relative bg-light-cream px-5 pt-10 pb-20 md:pb-32"
+      id="kategori"
+    >
       <div class="flex flex-col justify-center font-haoura">
         <h2 class="text-2xl font-extrabold text-green-dark md:text-center md:text-3xl">
           Kategori Al-Qur'an
@@ -151,10 +219,15 @@ const Category: Component = () => {
           beberapa macam kategori al-qur'an yang bisa dipilih
         </p>
       </div>
-      <div class="mt-10 space-y-5 md:mx-auto md:flex md:max-w-[850px] md:space-y-0 md:space-x-5 lg:space-x-7">
+      <div class="mt-10 space-y-5 md:mx-auto md:flex md:max-w-[950px] md:justify-between md:space-y-0 lg:space-x-7">
         <div class="flex-col">
           <div class="flex h-full w-full items-center justify-center rounded-lg bg-[#efefe7] shadow-sm">
-            <img src={hitam} alt="al-mukhtar-hitam" class="h-56 md:h-72 " />
+            <img
+              src="https://ik.imagekit.io/w9raj61y944g/Landing-Page/Category/hitam.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1672975464396"
+              alt="al-mukhtar-hitam"
+              class="h-56 md:h-72 "
+              loading="lazy"
+            />
           </div>
           <p class="mt-5 text-xl font-bold text-green-light md:text-center">
             Al-Mukhtar
@@ -162,7 +235,12 @@ const Category: Component = () => {
         </div>
         <div class="flex-col">
           <div class=" flex h-full w-full items-center justify-center rounded-lg bg-[#efefe7] shadow-sm">
-            <img src={pink} alt="lope-pink" class=" h-56  md:h-72" />
+            <img
+              src="https://ik.imagekit.io/w9raj61y944g/Landing-Page/Category/pink.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1672975499496"
+              alt="lope-pink"
+              class="h-56  md:h-72"
+              loading="lazy"
+            />
           </div>
           <p class="mt-5 text-xl font-bold text-green-light md:text-center">
             Lope
@@ -170,7 +248,12 @@ const Category: Component = () => {
         </div>
         <div class="flex-col">
           <div class=" flex h-full w-full items-center justify-center rounded-lg bg-[#efefe7] shadow-sm">
-            <img src={merah} alt="samsinoer-merah-emas" class=" h-56 md:h-72" />
+            <img
+              src="https://ik.imagekit.io/w9raj61y944g/Landing-Page/Category/merah.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1672975481643"
+              alt="samsinoer-merah-emas"
+              class=" h-56 md:h-72"
+              loading="lazy"
+            />
           </div>
           <p class=" mt-5 text-xl font-bold text-green-light md:text-center">
             Samsinoer
@@ -183,8 +266,8 @@ const Category: Component = () => {
 
 const About: Component = () => {
   return (
-    <div class="mt-20 flex-col bg-green-light px-5 py-10 font-haoura md:px-5 lg:rounded-tl-xl lg:rounded-tr-xl">
-      <section>
+    <div class="flex-col bg-green-light px-5 py-12 font-haoura md:px-5 lg:rounded-tl-xl lg:rounded-tr-xl">
+      <section id="about">
         <h2 class="text-2xl font-extrabold text-white md:text-center md:text-3xl">
           Tentang Kami
         </h2>
@@ -209,7 +292,10 @@ const About: Component = () => {
 
 const Lokasi: Component = () => {
   return (
-    <section class="mt-10 max-w-[825px] font-haoura md:mx-auto md:px-0">
+    <section
+      class="mt-10 max-w-[825px] font-haoura md:mx-auto md:px-0"
+      id="alamat"
+    >
       <h2 class="text-2xl font-extrabold text-white md:text-center md:text-3xl">
         Lokasi & Kontak
       </h2>
@@ -222,12 +308,12 @@ const Lokasi: Component = () => {
       </div>
       <div class="mx-auto mt-5 flex md:justify-center md:space-x-5">
         <a href="https://goo.gl/maps/a59KtqJKnEBFiByT9" target="blank">
-          <button class="flex items-center justify-center rounded border-[3px] border-[#005C49] bg-green-light px-5 py-2 md:py-[10px] md:px-7">
+          <button class="flex items-center justify-center rounded border-[3px] border-[#005C49] bg-green-light px-5 py-2 transition duration-300 ease-in-out hover:-translate-y-1 hover:bg-green-dark md:py-[10px] md:px-7">
             <img src={location} alt="wa" class="h-5" />
             <span class="ml-2 font-semibold text-white">Google Map</span>
           </button>
         </a>
-        <button class="ml-5 flex items-center justify-center rounded bg-white px-6 py-2 md:px-7 md:py-[10px]">
+        <button class="ml-5 flex items-center justify-center rounded bg-white px-6 py-2 transition duration-300 ease-in-out hover:-translate-y-1 hover:bg-green-dark hover:text-white md:px-7 md:py-[10px]">
           <img src={wa} alt="wa" class="h-5" />
           <span class="ml-2 font-semibold">Whatsapp</span>
         </button>
@@ -244,7 +330,7 @@ const Footer: Component = () => {
         style="background-color: rgba(0, 0, 0, 0.2);"
       >
         © 2023 Copyright: <span> </span>
-        <a class="text-white" href="https://tailwind-elements.com/">
+        <a class="text-white" href="/`">
           PT.GG Wirajaya
         </a>
       </div>
