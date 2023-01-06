@@ -329,12 +329,12 @@ const About: Component = () => {
           </div>
         </div>
       </section>
-      <Lokasi />
+      <Location />
     </div>
   );
 };
 
-const Lokasi: Component = () => {
+const Location: Component = () => {
   return (
     <section
       class="mt-10 max-w-[825px] shrink font-haoura md:mx-auto md:px-0"
