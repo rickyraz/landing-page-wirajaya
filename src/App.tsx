@@ -1,4 +1,4 @@
-import { Component, mergeProps } from "solid-js";
+import { Component, createEffect, createSignal, mergeProps } from "solid-js";
 import "./index.css";
 import logo from "./logo.svg";
 import logoWide from "./logo-wide.svg";
@@ -10,7 +10,7 @@ import bar from "./assets/bar.svg";
 
 const App: Component = () => {
   return (
-    <div class=" overflow-x-hidden">
+    <div class="overflow-x-hidden">
       <Header />
       <Hero />
       <WhyHere />
@@ -21,7 +21,7 @@ const App: Component = () => {
   );
 };
 
-// ------------------ Components ------------------
+// -- Header --
 
 const Header: Component = () => {
   const handleClick = (event: { target: any; preventDefault: () => void }) => {
@@ -47,13 +47,27 @@ const Header: Component = () => {
     }
   };
 
+  const [isMenuActive, setMenuActive] = createSignal(false);
+  const toggleMenu = () => setMenuActive((isMenuActive) => !isMenuActive);
+  createEffect(() => {
+    const body = document.body ?? document.querySelector("body");
+    if (isMenuActive()) {
+      body.style.overflow = "hidden";
+    } else {
+      body.style.overflow = "auto";
+    }
+  }, [isMenuActive]);
+
+  const path = window.location.pathname;
+  console.log();
+
   return (
-    <header class="fixed z-[120] w-full flex-wrap border-b border-b-white bg-light-cream bg-opacity-[85] py-2 pl-5 font-haoura backdrop-blur-xl md:px-10 md:py-5">
+    <header class="fixed z-[120] w-full flex-wrap border-b border-b-white bg-light-cream bg-opacity-[85] py-1 font-haoura backdrop-blur-xl md:px-10 md:py-5">
       <nav
         class="relative flex items-center justify-between md:mx-auto md:max-w-[1015px]"
         onClick={handleClick}
       >
-        <div class="flex flex-shrink-0 items-center">
+        <div class="flex flex-shrink-0 items-center pl-5">
           <a href="/">
             <picture class="mr-10 flex items-center ">
               <source media="(min-width: 768px)" srcset={logoWide} />
@@ -80,14 +94,40 @@ const Header: Component = () => {
           <button class="rounded-full bg-red-btn py-2 px-4 text-sm font-semibold text-white hover:bg-red-btn-hover">
             cek toko
           </button>
-          <button class="p-5 md:hidden">
+          <button class="p-5 hover:bg-[#cacac2] md:hidden" onclick={toggleMenu}>
             <img src={bar} alt="bar menu" class="h-8 fill-current" />
           </button>
+        </div>
+      </nav>
+      <nav class={isMenuActive() ? "" : "hidden md:hidden"}>
+        <div class="bg-[#efefe7] px-5">
+          <ul class="text-center text-lg font-semibold text-green-dark ">
+            <a href="#kelebihan" class="px-20" onclick={toggleMenu}>
+              <li class="bg-[#efefe7] py-3 hover:bg-[#cacac2] focus:bg-green-light">
+                Kelebihan
+              </li>
+            </a>
+            <a href="#kategori" class="px-20 " onclick={toggleMenu}>
+              <li class="bg-[#efefe7] py-3 hover:bg-[#cacac2]">
+                Kategori Al-Qur'an
+              </li>
+            </a>
+            <a href="#about" class="px-20 " onclick={toggleMenu}>
+              <li class="bg-[#efefe7] py-3 hover:bg-[#cacac2]">Tentang kami</li>
+            </a>
+            <a href="#alamat" class="px-20" onclick={toggleMenu}>
+              <li class="bg-[#efefe7] py-3 hover:bg-[#cacac2]">
+                Lokasi & Kontak
+              </li>
+            </a>
+          </ul>
         </div>
       </nav>
     </header>
   );
 };
+
+// -- Hero --
 
 const Hero: Component = () => {
   return (
@@ -293,7 +333,7 @@ const About: Component = () => {
 const Lokasi: Component = () => {
   return (
     <section
-      class="mt-10 max-w-[825px] font-haoura md:mx-auto md:px-0"
+      class="mt-10 max-w-[825px] shrink font-haoura md:mx-auto md:px-0"
       id="alamat"
     >
       <h2 class="text-2xl font-extrabold text-white md:text-center md:text-3xl">
@@ -306,14 +346,14 @@ const Lokasi: Component = () => {
           Pangkalan Jati, Kec. Cinere, Kota Depok, Jawa Barat 16513
         </p>
       </div>
-      <div class="mx-auto mt-5 flex md:justify-center md:space-x-5">
+      <div class="mx-auto mt-5 flex space-x-5 md:justify-center">
         <a href="https://goo.gl/maps/a59KtqJKnEBFiByT9" target="blank">
           <button class="flex items-center justify-center rounded border-[3px] border-[#005C49] bg-green-light px-5 py-2 transition duration-300 ease-in-out hover:-translate-y-1 hover:bg-green-dark md:py-[10px] md:px-7">
             <img src={location} alt="wa" class="h-5" />
             <span class="ml-2 font-semibold text-white">Google Map</span>
           </button>
         </a>
-        <button class="ml-5 flex items-center justify-center rounded bg-white px-6 py-2 transition duration-300 ease-in-out hover:-translate-y-1 hover:bg-green-dark hover:text-white md:px-7 md:py-[10px]">
+        <button class="flex items-center justify-center rounded bg-white px-6 py-2 transition duration-300 ease-in-out hover:-translate-y-1 hover:bg-green-dark hover:text-white md:px-7 md:py-[10px]">
           <img src={wa} alt="wa" class="h-5" />
           <span class="ml-2 font-semibold">Whatsapp</span>
         </button>
@@ -339,3 +379,10 @@ const Footer: Component = () => {
 };
 
 export default App;
+
+function useState(arg0: boolean): [any, any] {
+  throw new Error("Function not implemented.");
+}
+function useEffect(arg0: () => void, arg1: any[]) {
+  throw new Error("Function not implemented.");
+}
