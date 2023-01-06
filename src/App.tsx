@@ -107,12 +107,12 @@ const Header: Component = () => {
                 Kelebihan
               </li>
             </a>
-            <a href="#kategori" class="px-20 " onclick={toggleMenu}>
+            <a href="#kategori" class="px-20" onclick={toggleMenu}>
               <li class="bg-[#efefe7] py-3 hover:bg-[#cacac2]">
                 Kategori Al-Qur'an
               </li>
             </a>
-            <a href="#about" class="px-20 " onclick={toggleMenu}>
+            <a href="#about" class="px-20" onclick={toggleMenu}>
               <li class="bg-[#efefe7] py-3 hover:bg-[#cacac2]">Tentang kami</li>
             </a>
             <a href="#alamat" class="px-20" onclick={toggleMenu}>
