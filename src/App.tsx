@@ -352,12 +352,12 @@ const Location: Component = () => {
       </div>
       <div class="mx-auto mt-5 flex space-x-5 md:justify-center">
         <a href="https://goo.gl/maps/a59KtqJKnEBFiByT9" target="blank">
-          <button class="flex items-center justify-center rounded border-[3px] border-[#005C49] bg-green-light px-5 py-2 transition duration-300 ease-in-out hover:-translate-y-1 hover:bg-green-dark md:py-[10px] md:px-7">
+          <button class="flex items-center justify-center rounded border-[3px] border-[#005C49] bg-green-light px-4 py-2 transition duration-300 ease-in-out hover:-translate-y-1 hover:bg-green-dark md:py-[10px] md:px-7">
             <img src={location} alt="wa" class="h-5" />
             <span class="ml-2 font-semibold text-white">Google Map</span>
           </button>
         </a>
-        <button class="flex items-center justify-center rounded bg-white px-6 py-2 transition duration-300 ease-in-out hover:-translate-y-1 hover:bg-green-dark hover:text-white md:px-7 md:py-[10px]">
+        <button class="flex items-center justify-center rounded bg-white px-4 py-2 transition duration-300 ease-in-out hover:-translate-y-1 hover:bg-green-dark hover:text-white md:px-7 md:py-[10px]">
           <img src={wa} alt="wa" class="h-5" />
           <span class="ml-2 font-semibold">Whatsapp</span>
         </button>
