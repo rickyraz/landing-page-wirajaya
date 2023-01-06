@@ -1,4 +1,5 @@
 import { Component, createEffect, createSignal, mergeProps } from "solid-js";
+
 import "./index.css";
 import logo from "./logo.svg";
 import logoWide from "./logo-wide.svg";
@@ -201,19 +202,19 @@ const WhyHere: Component = () => {
       </p>
       <div class="mt-10 space-y-7">
         <Points
-          title="Proses pembuatan yang berkualitas"
+          titles="Proses pembuatan yang berkualitas"
           desc="Alqur'an kami melalui proses tahap yang panjang, setiap langkah dilakukan dengan hati-hati oleh tim kami, menghasilkan produk terbaik yang tahan lama"
         />
         <Points
-          title="Tampilan Unik"
+          titles="Tampilan Unik"
           desc="Sampul quran kami terbuat dari bahan berkualitas dengan tampilan yang unik dan menarik. Kami menggunakan desain terbaik di pasaran untuk menciptakan produk eksklusif dan memikat"
         />
         <Points
-          title="Kualitas terjamin"
+          titles="Kualitas terjamin"
           desc="Kami paham betapa pentingnya kualitas alquran sebagai kitab suci, bukan hanya sampul tapi juga isinya. Kami berkomitmen meminimalkan kekurangan dalam produksi dengan pengetatan kualitas kontrol (QC)."
         />
         <Points
-          title="Terverifikasi oleh lembaga Agama"
+          titles="Terverifikasi oleh lembaga Agama"
           desc="Kami merupakan produsen al quran yang resmi terverifikasi oleh lembaga agama negara, Ini berarti bahwa al-quran kami telah lolos uji keaslian & standardisasi dari pihak berwenang"
         />
       </div>
@@ -223,7 +224,7 @@ const WhyHere: Component = () => {
 
 const Points: Component = (props) => {
   const points = mergeProps(
-    { title: "Hi", desc: "John", url: "#./", alt: "alt" },
+    { titles: "Hi", desc: "John", url: "#./", alt: "alt" },
     props
   );
 
@@ -233,7 +234,7 @@ const Points: Component = (props) => {
         <div class="md:mr-8 lg:mr-16">
           <div class="flex ">
             <img src={Diamond} alt="diamond" class="mr-5" />
-            <h3 class="text-xl font-bold text-green-light">{points.title}</h3>
+            <h3 class="text-xl font-bold text-green-light">{points.titles}</h3>
           </div>
           <p class="mt-5 text-sm text-green-dark md:text-base">{points.desc}</p>
         </div>
