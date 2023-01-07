@@ -110,7 +110,7 @@ const Header: Component = () => {
         </div>
       </nav>
       {/* class={isMenuActive() ? "" : "hidden"} */}
-      <div class="bg-[#efefe7] ">
+      <div class="z-50 bg-[#efefe7]">
         <Presence>
           <Show when={isMenuActive()}>
             <Motion.div
