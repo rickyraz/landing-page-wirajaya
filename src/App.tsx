@@ -6,6 +6,7 @@ import {
   Show,
 } from "solid-js";
 
+import { stagger, inView } from "motion";
 import { Motion, Presence } from "@motionone/solid";
 
 import "./index.css";
@@ -70,9 +71,11 @@ const Header: Component = () => {
 
   return (
     <header class="fixed z-[120] w-full flex-wrap border-b border-b-white bg-light-cream bg-opacity-[85] py-1 font-haoura backdrop-blur-xl md:px-10 md:py-5">
-      <nav
+      <Motion.nav
         class="relative flex items-center justify-between md:mx-auto md:max-w-[1015px]"
         onClick={handleClick}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0, transition: { delay: 0.08 } }}
       >
         <div class="flex flex-shrink-0 items-center pl-5">
           <a href="/">
@@ -108,8 +111,7 @@ const Header: Component = () => {
             <img src={bar} alt="bar menu" class="h-8 fill-current" />
           </button>
         </div>
-      </nav>
-      {/* class={isMenuActive() ? "" : "hidden"} */}
+      </Motion.nav>
       <div class="z-50 bg-[#efefe7]">
         <Presence>
           <Show when={isMenuActive()}>
@@ -117,7 +119,7 @@ const Header: Component = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0, transition: { delay: 0.08 } }}
               transition={{ duration: 0.1 }}
-              exit={{ opacity: 0, y: -100 }}
+              exit={{ opacity: 0, y: -50 }}
             >
               <ul class="text-center text-base font-semibold text-green-dark ">
                 <a href="#kelebihan" class="px-20" onclick={toggleMenu}>
@@ -154,14 +156,22 @@ const Header: Component = () => {
 const Hero: Component = () => {
   return (
     <div class="relative flex flex-col items-center justify-start bg-light-cream px-5 pb-40 md:px-10 md:pt-24 md:pb-0">
-      <h1 class="mt-32 font-golden text-2xl leading-loose text-green-dark md:mt-24 md:text-[32px] lg:text-[46px]">
+      <Motion.h1
+        class="mt-32 font-golden text-2xl leading-loose text-green-dark md:mt-24 md:text-[32px] lg:text-[46px]"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0, transition: { delay: 0.2 } }}
+      >
         100% Handmade Qur'an Cover
-      </h1>
-      <p class="mt-5 text-left font-haoura text-base font-medium text-green-light md:mt-10 md:max-w-2xl  md:text-center lg:mt-20 lg:max-w-3xl">
+      </Motion.h1>
+      <Motion.p
+        class="mt-5 text-left font-haoura text-base font-medium text-green-light md:mt-10 md:max-w-2xl  md:text-center lg:mt-20 lg:max-w-3xl"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0, transition: { delay: 0.3 } }}
+      >
         Enhance your reading experience with a luxurious handcrafted Quran
         cover. Made with utmost care and high quality material, unique and
         beautiful quran cover for the sacred text.
-      </p>
+      </Motion.p>
       <Quran />
     </div>
   );
