@@ -164,7 +164,7 @@ const Hero: Component = () => {
         100% Handmade Qur'an Cover
       </Motion.h1>
       <Motion.p
-        class="mt-5 text-left font-haoura text-base font-medium text-green-light md:mt-10 md:max-w-2xl  md:text-center lg:mt-20 lg:max-w-3xl"
+        class="mt-5 text-left font-haoura text-base font-medium text-green-light md:mt-10 md:max-w-2xl  md:text-center lg:mt-16 lg:max-w-3xl"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0, transition: { delay: 0.3 } }}
       >
@@ -179,7 +179,7 @@ const Hero: Component = () => {
 
 const Quran: Component = () => {
   return (
-    <div class="relative mt-10 md:mt-24 md:-mb-28 ">
+    <div class="relative mt-10 md:mt-20 md:-mb-40 ">
       <div class="relative flex md:-space-x-5 xl:-space-x-5">
         <Motion.div
           class="h-[281px] w-[211px] bg-transparent md:h-[345px] md:w-[252px] max-md:absolute max-md:top-8 max-md:-right-6 max-md:z-0"
