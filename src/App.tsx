@@ -180,39 +180,55 @@ const Hero: Component = () => {
 const Quran: Component = () => {
   return (
     <div class="relative mt-10 md:mt-24 md:-mb-28 ">
-      <div class="relative flex md:-space-x-5 xl:-space-x-10">
-        <div class="h-[281px] w-[211px] bg-transparent transition duration-300 ease-in-out md:h-[345px] md:w-[252px] xl:rotate-10der hover:xl:rotate-0 max-md:absolute max-md:top-8 max-md:-right-6 max-md:z-0">
+      <div class="relative flex md:-space-x-5 xl:-space-x-5">
+        <Motion.div
+          class="h-[281px] w-[211px] bg-transparent md:h-[345px] md:w-[252px] max-md:absolute max-md:top-8 max-md:-right-6 max-md:z-0"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0, transition: { delay: 0.1 } }}
+        >
           <img
             src="https://ik.imagekit.io/w9raj61y944g/Landing-Page/Hero/ungu.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1672975788176"
             alt="quran custom ungu"
             loading="lazy"
             class="h-full w-full object-cover shadow-sm contrast-125"
           />
-        </div>
-        <div class="h-[281px] w-[211px] bg-transparent transition duration-300 ease-in-out md:h-[345px] md:w-[252px] xl:rotate-10der hover:xl:rotate-0 max-md:absolute max-md:top-0 max-md:-left-6 max-md:z-10">
+        </Motion.div>
+        <Motion.div
+          class="h-[281px] w-[211px] md:h-[345px] md:w-[252px] max-md:absolute max-md:top-0 max-md:-left-6 max-md:z-10"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0, transition: { delay: 0.24 } }}
+        >
           <img
             src="https://ik.imagekit.io/w9raj61y944g/Landing-Page/Hero/fanta.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1672976550941"
             alt="quran custom merah"
             loading="lazy"
             class="h-full w-full object-cover shadow-sm"
           />
-        </div>
-        <div class="h-[281px] w-[211px] bg-transparent transition duration-300 ease-in-out md:h-[345px] md:w-[252px] xl:rotate-10der hover:xl:rotate-0 max-md:hidden">
+        </Motion.div>
+        <Motion.div
+          class="h-[281px] w-[211px] md:h-[345px] md:w-[252px] max-md:hidden"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0, transition: { delay: 0.34 } }}
+        >
           <img
             src="https://ik.imagekit.io/w9raj61y944g/Landing-Page/Hero/hijau-tua.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1672975875140"
             alt="quran custom cover hijau tua"
             loading="lazy"
             class="h-full w-full object-cover shadow-sm "
           />
-        </div>
-        <div class="h-[281px] w-[211px] bg-transparent transition duration-300 ease-in-out md:h-[345px]  md:w-[252px] xl:rotate-10der hover:xl:rotate-0 max-lg:hidden">
+        </Motion.div>
+        <Motion.div
+          class="h-[281px] w-[211px] md:h-[345px] md:w-[252px] max-lg:hidden"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0, transition: { delay: 0.44 } }}
+        >
           <img
             src="https://ik.imagekit.io/w9raj61y944g/Landing-Page/Hero/emas.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1672976745320"
             alt="quran custom cover emas"
             loading="lazy"
             class="h-full w-full object-cover shadow-sm "
           />
-        </div>
+        </Motion.div>
       </div>
     </div>
   );
