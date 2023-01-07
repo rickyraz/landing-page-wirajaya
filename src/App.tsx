@@ -1,4 +1,12 @@
-import { Component, createEffect, createSignal, mergeProps } from "solid-js";
+import {
+  Component,
+  createEffect,
+  createSignal,
+  mergeProps,
+  Show,
+} from "solid-js";
+
+import { Motion, Presence } from "@motionone/solid";
 
 import "./index.css";
 import logo from "./logo.svg";
@@ -50,6 +58,7 @@ const Header: Component = () => {
 
   const [isMenuActive, setMenuActive] = createSignal(false);
   const toggleMenu = () => setMenuActive((isMenuActive) => !isMenuActive);
+
   createEffect(() => {
     const body = document.body ?? document.querySelector("body");
     if (isMenuActive()) {
@@ -58,9 +67,6 @@ const Header: Component = () => {
       body.style.overflow = "auto";
     }
   }, [isMenuActive]);
-
-  const path = window.location.pathname;
-  console.log();
 
   return (
     <header class="fixed z-[120] w-full flex-wrap border-b border-b-white bg-light-cream bg-opacity-[85] py-1 font-haoura backdrop-blur-xl md:px-10 md:py-5">
@@ -95,35 +101,50 @@ const Header: Component = () => {
           <button class="rounded-full bg-red-btn py-2 px-4 text-sm font-semibold text-white hover:bg-red-btn-hover">
             cek toko
           </button>
-          <button class="p-5 hover:bg-[#cacac2] md:hidden" onclick={toggleMenu}>
+          <button
+            class="p-5 hover:bg-[#cacac2] focus:bg-light-cream active:bg-light-cream md:hidden"
+            onclick={toggleMenu}
+          >
             <img src={bar} alt="bar menu" class="h-8 fill-current" />
           </button>
         </div>
       </nav>
-      <nav class={isMenuActive() ? "" : "hidden md:hidden"}>
-        <div class="bg-[#efefe7] px-5">
-          <ul class="text-center text-lg font-semibold text-green-dark ">
-            <a href="#kelebihan" class="px-20" onclick={toggleMenu}>
-              <li class="bg-[#efefe7] py-3 hover:bg-[#cacac2] focus:bg-green-light">
-                Kelebihan
-              </li>
-            </a>
-            <a href="#kategori" class="px-20" onclick={toggleMenu}>
-              <li class="bg-[#efefe7] py-3 hover:bg-[#cacac2]">
-                Kategori Al-Qur'an
-              </li>
-            </a>
-            <a href="#about" class="px-20" onclick={toggleMenu}>
-              <li class="bg-[#efefe7] py-3 hover:bg-[#cacac2]">Tentang kami</li>
-            </a>
-            <a href="#alamat" class="px-20" onclick={toggleMenu}>
-              <li class="bg-[#efefe7] py-3 hover:bg-[#cacac2]">
-                Lokasi & Kontak
-              </li>
-            </a>
-          </ul>
-        </div>
-      </nav>
+      {/* class={isMenuActive() ? "" : "hidden"} */}
+      <div class="bg-[#efefe7] ">
+        <Presence>
+          <Show when={isMenuActive()}>
+            <Motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0, transition: { delay: 0.08 } }}
+              transition={{ duration: 0.1 }}
+              exit={{ opacity: 0, y: -100 }}
+            >
+              <ul class="text-center text-base font-semibold text-green-dark ">
+                <a href="#kelebihan" class="px-20" onclick={toggleMenu}>
+                  <li class="bg-[#efefe7] py-3 hover:bg-[#cacac2] focus:bg-green-light">
+                    Kelebihan
+                  </li>
+                </a>
+                <a href="#kategori" class="px-20" onclick={toggleMenu}>
+                  <li class="bg-[#efefe7] py-3 hover:bg-[#cacac2]">
+                    Kategori Al-Qur'an
+                  </li>
+                </a>
+                <a href="#about" class="px-20" onclick={toggleMenu}>
+                  <li class="bg-[#efefe7] py-3 hover:bg-[#cacac2]">
+                    Tentang kami
+                  </li>
+                </a>
+                <a href="#alamat" class="px-20" onclick={toggleMenu}>
+                  <li class="bg-[#efefe7] py-3 hover:bg-[#cacac2]">
+                    Lokasi & Kontak
+                  </li>
+                </a>
+              </ul>
+            </Motion.div>
+          </Show>
+        </Presence>
+      </div>
     </header>
   );
 };
@@ -133,7 +154,7 @@ const Header: Component = () => {
 const Hero: Component = () => {
   return (
     <div class="relative flex flex-col items-center justify-start bg-light-cream px-5 pb-40 md:px-10 md:pt-24 md:pb-0">
-      <h1 class="mt-32 font-golden text-2xl leading-loose text-green-dark md:mt-24 md:text-[32px] lg:text-5xl">
+      <h1 class="mt-32 font-golden text-2xl leading-loose text-green-dark md:mt-24 md:text-[32px] lg:text-[46px]">
         100% Handmade Qur'an Cover
       </h1>
       <p class="mt-5 text-left font-haoura text-base font-medium text-green-light md:mt-10 md:max-w-2xl  md:text-center lg:mt-20 lg:max-w-3xl">
@@ -279,7 +300,7 @@ const Category: Component = () => {
             <img
               src="https://ik.imagekit.io/w9raj61y944g/Landing-Page/Category/pink.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1672975499496"
               alt="lope-pink"
-              class="h-56  md:h-72"
+              class="h-56 contrast-125 md:h-72"
               loading="lazy"
             />
           </div>
@@ -290,14 +311,14 @@ const Category: Component = () => {
         <div class="flex-col">
           <div class=" flex h-full w-full items-center justify-center rounded-lg bg-[#efefe7] shadow-sm">
             <img
-              src="https://ik.imagekit.io/w9raj61y944g/Landing-Page/Category/merah.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1672975481643"
-              alt="samsinoer-merah-emas"
-              class=" h-56 md:h-72"
+              src="https://ik.imagekit.io/w9raj61y944g/Landing-Page/Category/syam-emas-merah.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1673057214098"
+              alt="syamsinoer-merah-emas"
+              class="h-56 md:h-72 md:px-10"
               loading="lazy"
             />
           </div>
           <p class=" mt-5 text-xl font-bold text-green-light md:text-center">
-            Samsinoer
+            Syamsinoer
           </p>
         </div>
       </div>
