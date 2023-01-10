@@ -101,9 +101,11 @@ const Header: Component = () => {
           </ul>
         </div>
         <div class="flex flex-shrink-0 items-center">
-          <button class="rounded-full bg-red-btn py-2 px-4 text-sm font-semibold text-white hover:bg-red-btn-hover">
-            cek toko
-          </button>
+          <a href="https://s.id/cek-toko">
+            <button class="rounded-full bg-red-btn py-2 px-4 text-sm font-semibold text-white hover:bg-red-btn-hover">
+              cek toko
+            </button>
+          </a>
           <button
             class="p-5 hover:bg-[#cacac2] focus:bg-light-cream active:bg-light-cream md:hidden"
             onclick={toggleMenu}
