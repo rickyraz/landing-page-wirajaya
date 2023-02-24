@@ -70,14 +70,14 @@ const Header: Component = () => {
   }, [isMenuActive]);
 
   return (
-    <header class="fixed z-[120] w-full flex-wrap border-b border-b-white bg-light-cream bg-opacity-[85] py-1 font-haoura backdrop-blur-xl md:px-10 md:py-5">
+    <header class="fixed z-[120] w-full flex-wrap border-b border-b-white bg-light-cream bg-opacity-[50] py-1 font-haoura backdrop-blur-2xl md:px-10 md:py-5">
       <Motion.nav
         class="relative flex items-center justify-between md:mx-auto md:max-w-[1015px]"
         onClick={handleClick}
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0, transition: { delay: 0.08 } }}
       >
-        <div class="flex flex-shrink-0 items-center pl-5">
+        <div class="flex flex-shrink-0  items-center pl-5">
           <a href="/">
             <picture class="mr-10 flex items-center ">
               <source media="(min-width: 768px)" srcset={logoWide} />
@@ -311,40 +311,46 @@ const Category: Component = () => {
       </div>
       <div class="mt-10 space-y-5 md:mx-auto md:flex md:max-w-[950px] md:justify-between md:space-y-0 lg:space-x-7">
         <div class="flex-col">
-          <div class="flex h-full w-full items-center justify-center rounded-lg bg-[#efefe7] shadow-sm">
-            <img
-              src="https://ik.imagekit.io/w9raj61y944g/Landing-Page/Category/hitam.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1672975464396"
-              alt="al-mukhtar-hitam"
-              class="h-56 md:h-72 "
-              loading="lazy"
-            />
-          </div>
+          <a href="#">
+            <div class="flex h-full w-full items-center justify-center rounded-lg bg-[#efefe7] shadow-sm transition-all hover:scale-95">
+              <img
+                src="https://ik.imagekit.io/w9raj61y944g/Landing-Page/Category/hitam.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1672975464396"
+                alt="al-mukhtar-hitam"
+                class="h-56 md:h-72 "
+                loading="lazy"
+              />
+            </div>
+          </a>
           <p class="mt-5 text-xl font-bold text-green-light md:text-center">
-            Al-Mukhtar
+            Al-Muhtar
           </p>
         </div>
         <div class="flex-col">
-          <div class=" flex h-full w-full items-center justify-center rounded-lg bg-[#efefe7] shadow-sm">
-            <img
-              src="https://ik.imagekit.io/w9raj61y944g/Landing-Page/Category/pink.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1672975499496"
-              alt="lope-pink"
-              class="h-56 contrast-125 md:h-72"
-              loading="lazy"
-            />
-          </div>
+          <a href="#">
+            <div class=" flex h-full w-full items-center justify-center rounded-lg bg-[#efefe7] shadow-sm transition-all hover:scale-95">
+              <img
+                src="https://ik.imagekit.io/w9raj61y944g/Landing-Page/Category/pink.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1672975499496"
+                alt="lope-pink"
+                class="h-56 contrast-125 md:h-72"
+                loading="lazy"
+              />
+            </div>
+          </a>
           <p class="mt-5 text-xl font-bold text-green-light md:text-center">
             Lope
           </p>
         </div>
         <div class="flex-col">
-          <div class=" flex h-full w-full items-center justify-center rounded-lg bg-[#efefe7] shadow-sm">
-            <img
-              src="https://ik.imagekit.io/w9raj61y944g/Landing-Page/Category/syam-emas-merah.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1673057214098"
-              alt="syamsinoer-merah-emas"
-              class="h-56 md:h-72 md:px-10"
-              loading="lazy"
-            />
-          </div>
+          <a href="#">
+            <div class=" flex h-full w-full items-center justify-center rounded-lg bg-[#efefe7] shadow-sm transition-all hover:scale-95">
+              <img
+                src="https://ik.imagekit.io/w9raj61y944g/Landing-Page/Category/syam-emas-merah.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1673057214098"
+                alt="syamsinoer-merah-emas"
+                class="h-56 md:h-72 md:px-10"
+                loading="lazy"
+              />
+            </div>
+          </a>
           <p class=" mt-5 text-xl font-bold text-green-light md:text-center">
             Syamsinoer
           </p>
@@ -357,7 +363,7 @@ const Category: Component = () => {
 const About: Component = () => {
   return (
     <div
-      class="flex-col bg-green-light px-5 py-12 font-haoura md:px-5 lg:rounded-tl-xl lg:rounded-tr-xl"
+      class="flex-col bg-green-light px-5 pt-12 pb-12 font-haoura md:px-5 lg:rounded-tl-xl lg:rounded-tr-xl"
       id="about"
     >
       <section>
